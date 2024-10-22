@@ -23,7 +23,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"GitHub.github-vscode-theme",
-		"golang.Go"
+		"golang.Go",
+		"ms-vscode.hexeditor"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
