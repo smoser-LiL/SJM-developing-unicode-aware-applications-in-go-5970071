@@ -7,7 +7,7 @@ import (
 /*
 	title returns string with text centered to width and a line below
 
-banner("G☺", 6)
+title("G☺", 6)
 
 	  G☺
 	------
