@@ -1,14 +1,14 @@
-package main
+package numbers
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 )
 
 var numRe = regexp.MustCompile(`\pN+`)
 
-func findNums(text string) ([]int, error) {
+// FindNums returns slice of number found in text.
+func FindNums(text string) ([]int, error) {
 	var nums []int
 	for _, s := range numRe.FindAllString(text, -1) {
 		n, err := strconv.Atoi(s)
@@ -19,15 +19,4 @@ func findNums(text string) ([]int, error) {
 	}
 
 	return nums, nil
-}
-
-func main() {
-	text := "English: 42, Arabic: ٤٢"
-	nums, err := findNums(text)
-	if err != nil {
-		fmt.Println("ERROR:", err)
-		return
-	}
-
-	fmt.Println(nums)
 }
