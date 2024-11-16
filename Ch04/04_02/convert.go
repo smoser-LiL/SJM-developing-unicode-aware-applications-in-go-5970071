@@ -13,5 +13,6 @@ func main() {
 		return
 	}
 	defer in.Close()
+
 	io.CopyN(os.Stdout, in, 100)
 }
