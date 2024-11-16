@@ -1,4 +1,4 @@
-package main
+package graph
 
 import (
 	"bufio"
@@ -7,9 +7,9 @@ import (
 	"strings"
 )
 
-// parseGraph parses a graph containing lines like "A → B"
+// ParseGraph parses a graph containing lines like "A → B"
 // and returns map of src → []dest.
-func parseGraph(r io.Reader) (map[string][]string, error) {
+func ParseGraph(r io.Reader) (map[string][]string, error) {
 	graph := make(map[string][]string)
 	s := bufio.NewScanner(r)
 	lnum := 0
@@ -35,21 +35,4 @@ func parseGraph(r io.Reader) (map[string][]string, error) {
 	}
 
 	return graph, nil
-}
-
-func main() {
-	var data = `
-Ready → Running
-Running → Terminated
-Running → Waiting
-Waiting → Running
-`
-
-	r := strings.NewReader(data)
-	graph, err := parseGraph(r)
-	if err != nil {
-		fmt.Println("ERROR:", err)
-		return
-	}
-	fmt.Println(graph)
 }
