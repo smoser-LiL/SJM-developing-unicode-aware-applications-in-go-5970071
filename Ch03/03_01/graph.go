@@ -7,6 +7,17 @@ import (
 	"strings"
 )
 
+func parseLine(line string) (string, string, error) {
+	i := strings.Index(line, "→")
+	if i == -1 {
+		return "", "", fmt.Errorf("%q: no → in line", line)
+	}
+
+	src := strings.TrimSpace(line[:i])
+	dest := strings.TrimSpace(line[i+1:])
+	return src, dest, nil
+}
+
 // ParseGraph parses a graph containing lines like "A → B"
 // and returns map of src → []dest.
 func ParseGraph(r io.Reader) (map[string][]string, error) {
@@ -20,13 +31,11 @@ func ParseGraph(r io.Reader) (map[string][]string, error) {
 			continue
 		}
 
-		i := strings.Index(line, "→")
-		if i == -1 {
-			return nil, fmt.Errorf("%d: %q: no → in line", lnum, line)
+		src, dest, err := parseLine(line)
+		if err != nil {
+			return nil, fmt.Errorf("%d: %w", lnum, err)
 		}
 
-		src := strings.TrimSpace(line[:i])
-		dest := strings.TrimSpace(line[i+1:])
 		graph[src] = append(graph[src], dest)
 	}
 
