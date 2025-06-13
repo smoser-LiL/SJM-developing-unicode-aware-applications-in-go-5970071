@@ -34,9 +34,9 @@ def get_repo_license(repo):
     if res.status_code != 200:
         return None, None, None
     data = res.json()
-    license_name = data.get("license", {}).get("name", "UNKNOWN")
-    license_url = data.get("license", {}).get("url", "")
-    license_text = requests.get(data.get("download_url", "")).text
+    license_name = data.get("license", {}).get("name", "LICENSE UNKNOWN")
+    license_url = data.get("license", {}).get("url", "LICENSE URL UNKNOWN")
+    license_text = requests.get(data.get("download_url", "LICENSE TEXT UNKNOWN")).text
     return license_name, license_url, license_text
 
 
