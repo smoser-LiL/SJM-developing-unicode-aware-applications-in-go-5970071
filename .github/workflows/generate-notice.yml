@@ -1,0 +1,38 @@
+name: Generate NOTICE file
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  generate-notice:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Syft
+      run: |
+        curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+    - name: Generate SBOM
+      run: syft . -o spdx-json > sbom.json
+
+    - name: Install Python dependencies
+      run: pip install requests
+
+    - name: Generate NOTICE.md
+      run: python .github/scripts/generate_notice.py
+
+    - name: Commit NOTICE.md
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add NOTICE.md
+        git commit -m "Auto-generated NOTICE.md" || echo "No changes to commit"
+        git push
