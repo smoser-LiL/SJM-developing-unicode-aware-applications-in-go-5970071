@@ -81,8 +81,8 @@ ATTRIBUTIONS:\n\n""")
         # Metadata section
         license_blocks = []
         for dep in dependencies:
-            repo_url = f"https://github.com/{dep['repo']}" if dep["repo"] else ""
-            license_name, license_url, license_text = get_repo_license(dep["repo"]) if dep["repo"] else ("UNKNOWN", "", "")
+            repo_url = f"https://github.com/{dep['repo']}" if dep["repo"] else "REPO URL NOT FOUND"
+            license_name, license_url, license_text = get_repo_license(dep["repo"]) if dep["repo"] else ("LICENSE NAME UNKNOWN", "LICENSE URL UNKNOWN", "LICENSE TEXT UNKNOWN")
             copyright_line = f"Copyright © {dep['name']} contributors"
 
             f.write(f"{dep['name']}\n")
