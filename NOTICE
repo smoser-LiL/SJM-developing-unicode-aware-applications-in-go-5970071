@@ -31,22 +31,22 @@ License: MIT License
 https://api.github.com/licenses/mit
 
 golang.org/x/net
-
+REPO URL NOT FOUND
 Copyright © golang.org/x/net contributors
-License: UNKNOWN
-
+License: LICENSE NAME UNKNOWN
+LICENSE URL UNKNOWN
 
 golang.org/x/text
-
+REPO URL NOT FOUND
 Copyright © golang.org/x/text contributors
-License: UNKNOWN
-
+License: LICENSE NAME UNKNOWN
+LICENSE URL UNKNOWN
 
 gopkg.in/yaml.v3
-
+REPO URL NOT FOUND
 Copyright © gopkg.in/yaml.v3 contributors
-License: UNKNOWN
-
+License: LICENSE NAME UNKNOWN
+LICENSE URL UNKNOWN
 
 Please note, this project may automatically load third party code from external 
 repositories (for example, NPM modules, Composer packages, or other dependencies). 
@@ -159,6 +159,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+===========================================================
+
+golang.org/x/net:
+
+LICENSE TEXT UNKNOWN
+
+===========================================================
+
+golang.org/x/text:
+
+LICENSE TEXT UNKNOWN
+
+===========================================================
+
+gopkg.in/yaml.v3:
+
+LICENSE TEXT UNKNOWN
 
 ===========================================================
 
