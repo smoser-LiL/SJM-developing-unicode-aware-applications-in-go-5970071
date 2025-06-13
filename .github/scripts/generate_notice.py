@@ -4,8 +4,8 @@ import re
 import requests
 
 SBOM_FILE = "sbom.json"
-OUTPUT_FILE = "NOTICE.md"
-INTERNAL_DEPENDENCIES = {"actions/checkout", "copy-to-branches"}
+OUTPUT_FILE = "NOTICE"  # No .md extension
+INTERNAL_DEPENDENCIES = {"actions/checkout", "copy-to-branches", "actions/setup-python"}
 GITHUB_API = "https://api.github.com/repos"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 
